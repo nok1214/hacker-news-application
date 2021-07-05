@@ -10,22 +10,26 @@ class PopularNews extends React.Component {
   renderPopularNews() {
     return this.props.popularNews.map((popular) => {
       return (
-        <div className="ui divided items" key={popular.description}>
+        <div className="ui relaxed divided list" key={popular.description}>
           <div className="item">
-            <img
-              className="ui tiny image"
-              src={popular.urlToImage}
-              alt={popular.title}
-            />
-            <div className="middle alined content">
-              <a
-                className="header"
-                href={popular.url}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                {popular.title}
-              </a>
+            <div className="ui unstackable items">
+              <div className="item">
+                <img
+                  className="ui tiny image"
+                  src={popular.urlToImage}
+                  alt={popular.title}
+                />
+                <div className="content">
+                  <a
+                    className="header"
+                    href={popular.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    {popular.title}
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

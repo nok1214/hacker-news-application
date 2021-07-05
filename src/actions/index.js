@@ -3,8 +3,12 @@ import topHeadlinesApi from "../apis/topHeadlinesApi";
 import popularNewsApi from "../apis/popularNewsApi";
 import { SEARCHED_RESULTS, FETCH_TOP_HEADLINES, POPULAR_NEWS } from "./types";
 
-export const fetchSearchedResults = () => async (dispatch) => {
-  const response = await searchApi.get("/everything");
+export const fetchSearchedResults = (searchTerm) => async (dispatch) => {
+  const response = await searchApi.get("/everything", {
+    params: {
+      q: searchTerm,
+    },
+  });
 
   dispatch({ type: SEARCHED_RESULTS, payload: response.data.articles });
 };

@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./SearchBar";
-import TopHeadLines from "./TopHeadlines";
-import PopularNews from "./PopularNews";
+// import TopHeadLines from "./TopHeadlines";
+// import PopularNews from "./PopularNews";
+import SearchedResults from "./SearchedResults";
 
 const App = () => {
   return (
@@ -12,21 +12,7 @@ const App = () => {
         </div>
       </div>
       <div className="ui container" style={{ marginBottom: "20px" }}>
-        <SearchBar />
-      </div>
-      <div>
-        <div className="ui container">
-          <div className="ui grid">
-            <div className="ui row">
-              <div className="ten wide column">
-                <TopHeadLines />
-              </div>
-              <div className="five wide column">
-                <PopularNews />
-              </div>
-            </div>
-          </div>
-        </div>
+        <SearchedResults />
       </div>
     </div>
   );
