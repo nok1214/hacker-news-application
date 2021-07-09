@@ -6,7 +6,7 @@ export default axios.create({
   baseURL: "https://newsapi.org/v2",
   params: {
     sortBy: "popilarity",
-    pageSize: "10",
+    pageSize: "15",
     apiKey: KEY,
   },
 });
