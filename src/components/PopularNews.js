@@ -1,33 +1,38 @@
-import React from "react";
-import { connect } from "react-redux";
-import { fetchPopularNews } from "../actions";
+import React, { Component } from "react";
+import popular from "../apis/popular";
 
-class PopularNews extends React.Component {
+class PopularNews extends Component {
+  state = { popularNews: [] };
   componentDidMount() {
-    this.props.fetchPopularNews();
+    this.fetchPopularNews();
   }
 
-  renderPopularNews() {
-    return this.props.popularNews.map((popular) => {
+  fetchPopularNews = async () => {
+    const response = await popular.get("/top-headlines");
+    this.setState({ popularNews: response.data.articles });
+  };
+  popularNews() {
+    return this.state.popularNews.map((news) => {
       return (
-        <div className="ui relaxed divided list" key={popular.description}>
+        <div className="ui relaxed divided list">
           <div className="item">
             <div className="ui unstackable items">
               <div className="item">
-                <img
-                  className="ui tiny image"
-                  src={popular.urlToImage}
-                  alt={popular.title}
-                />
+                <div className="image">
+                  <img src={news.urlToImage} alt={news.title} />
+                </div>
                 <div className="content">
                   <a
                     className="header"
-                    href={popular.url}
+                    href={news.url}
                     target="_blank"
-                    rel="noreferrer noopener"
+                    rel="noopener noreferrer"
                   >
-                    {popular.title}
+                    {news.title}
                   </a>
+                  <div className="meta">
+                    <span>{news.description}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -40,14 +45,10 @@ class PopularNews extends React.Component {
     return (
       <>
         <h3>Popular This Week</h3>
-        <div>{this.renderPopularNews()}</div>
+        <div>{this.popularNews()}</div>
       </>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return { popularNews: state.popularNews };
-};
-
-export default connect(mapStateToProps, { fetchPopularNews })(PopularNews);
+export default PopularNews;

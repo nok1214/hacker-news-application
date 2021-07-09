@@ -1,10 +1,8 @@
 import { combineReducers } from "redux";
-import searchedResultReducer from "./searchedResultReducer";
-import topHeadlinesReducer from "./topHeadlinesReducer";
-import popularNewsReducer from "./popularNewsReducer";
+import fetchNewsReducer from "./fetchNewsReducer";
+import fetchTopHeadlinesReducer from "./fetchTopHeadlinesReducer";
 
 export default combineReducers({
-  searchedResults: searchedResultReducer,
-  topHeadlines: topHeadlinesReducer,
-  popularNews: popularNewsReducer,
+  fetchNews: fetchNewsReducer,
+  fetchTopHeadlines: fetchTopHeadlinesReducer,
 });

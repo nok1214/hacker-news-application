@@ -7,8 +7,7 @@ export default axios.create({
   params: {
     pageSize: "10",
     apiKey: KEY,
-    domains: "techcrunch.com",
-    language: "en",
-    sortBy: "popularity",
+    sortBy: "popilarity",
+    country: "us",
   },
 });

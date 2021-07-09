@@ -1,12 +1,12 @@
 import { FETCH_TOP_HEADLINES } from "../actions/types";
 
-const topHeadlinesReducer = (state = [], action) => {
+const fetchTopHeadlinesReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_TOP_HEADLINES:
-      return action.payload;
+      return [...action.payload];
     default:
       return state;
   }
 };
 
-export default topHeadlinesReducer;
+export default fetchTopHeadlinesReducer;

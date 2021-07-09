@@ -1,26 +1,23 @@
-import searchApi from "../apis/searchApi";
-import topHeadlinesApi from "../apis/topHeadlinesApi";
-import popularNewsApi from "../apis/popularNewsApi";
-import { SEARCHED_RESULTS, FETCH_TOP_HEADLINES, POPULAR_NEWS } from "./types";
+import { FETCH_NEWS, FETCH_TOP_HEADLINES } from "./types";
+import hackernews from "../apis/hackernews";
+import popular from "../apis/popular";
 
-export const fetchSearchedResults = (searchTerm) => async (dispatch) => {
-  const response = await searchApi.get("/everything", {
-    params: {
-      q: searchTerm,
-    },
-  });
-
-  dispatch({ type: SEARCHED_RESULTS, payload: response.data.articles });
-};
+export const fetchNews =
+  (term = "usa") =>
+  async (dispatch) => {
+    const response = await hackernews.get("/everything", {
+      params: {
+        q: term,
+      },
+    });
+    dispatch({ type: FETCH_NEWS, payload: response.data.articles });
+  };
 
 export const fetchTopHeadlines = () => async (dispatch) => {
-  const response = await topHeadlinesApi.get("/top-headlines");
-
+  const response = await popular.get("/top-headlines", {
+    params: {
+      domains: "techcrunch.com",
+    },
+  });
   dispatch({ type: FETCH_TOP_HEADLINES, payload: response.data.articles });
-};
-
-export const fetchPopularNews = () => async (dispatch) => {
-  const response = await popularNewsApi.get("/everything");
-
-  dispatch({ type: POPULAR_NEWS, payload: response.data.articles });
 };
