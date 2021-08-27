@@ -1,22 +1,30 @@
-# Getting Started with Hacker News Application
+# Hacker News Application
 
-use git clone https://github.com/nok1214/hacker-news-application.git
-then
-npm install the application
+Hacker News application that uses the News API to search and display the news you are searching for.
 
 ================================================================
 
-### `npm start`
+## Project Goals
 
-the application will start in [http://localhost:3000]
+Use News API to retrieve news data from News API to search and display the appropriate search results.
 
-This React JS application itergrates with the News API and also has search functionality implemented
+================================================================
 
-upon loading the application, 'Top News Today' will be fetched and anything you search on the search bar will update
+## How the application works
 
-'Top News Today' with your search results
+This React JS application itergrates with the News API and also has search functionality implemented. Initially, the application will load "Top News Today" and "Popular This Week" section, once input your search term and it will display your search results in the "Top News Today" section while keeping "Popular This Week" section in place. Upon clicking on the news it will direct you to the news website with more details.
 
-Technologies used: React JS, Reach Hook, Semantic UI, News API
+================================================================
+
+## Technologies used
+
+React JS, Redux, React Hook, Semantic UI, News API.
+
+================================================================
+
+## Quick Start
+
+After cloning the repository onto your local machine, use `npm install` and `npm start` and you can start searching for the news.
 
 ================================================================
 
