@@ -14,7 +14,7 @@ class PopularNews extends Component {
   popularNews() {
     return this.state.popularNews.map((news) => {
       return (
-        <div className="ui relaxed divided list">
+        <div className="ui relaxed divided list" key={news.title}>
           <div className="item">
             <div className="ui unstackable items">
               <div className="item">

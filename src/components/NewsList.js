@@ -10,7 +10,7 @@ class NewsList extends React.Component {
   renderedNews() {
     return this.props.news.map((news) => {
       return (
-        <div className="ui replaxed divided list">
+        <div className="ui replaxed divided list" key={news.title}>
           <div className="item">
             <div className="ui unstackable items">
               <div className="item">
